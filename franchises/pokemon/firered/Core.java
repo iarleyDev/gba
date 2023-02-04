@@ -26,7 +26,7 @@ public class Core {
          init_ubt(firered_version + 1);
          init_ubt(_firered.firered_constructor().getMemoryAdress());
          break;
-       case PTR_YAW:
+       case PTR_END:
          break;
      }
   }
