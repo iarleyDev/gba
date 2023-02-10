@@ -29,6 +29,30 @@ public class Core {
        case PTR_END:
          break;
      }
+    
+    public void _initCPU(boolean specUbc, FireRedAchievement fra) {
+       int sp; // SP program:
+       int pc; // PC program:
+      
+       FireRed fire_red = new FireRed(); // Fr: Counter
+       if (!specUbc) {
+          switch (fra) {
+            case null:
+              sp = 0x0;
+              pc = 0x0;
+              break;
+            case fire_red.firered_constructor():
+              sp = 0x0000056;
+              pc = 0x0000012;
+              if (fire_red._int(sp, false) == pc) { 
+                 init(0, sp);
+                 init(0, pc);
+              }
+              break; 
+              
+          }
+       }
+    }
   }
   
   // Achievements: [Total Points: 459]
