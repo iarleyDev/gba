@@ -125,6 +125,7 @@ public class Core {
        
        public int get_i_index(int mem, int alloc, int c) {
           if (c == C_GBA_3) {
+            indexing_ppumm(new int[mem - alloc], _int(mem, false), alloc, new int[] {c});
              return this.mem[alloc] + mem = _int(0x00012, true);
           } else {
              return indexing[0] = this.mem[alloc] + mem - _int(0x00012, false); 
@@ -139,6 +140,37 @@ public class Core {
        
        public FireRedAchievement _get_00achievement() {
           return firered_constructor(true, _int(memadress, true), 0);
+       }
+                                
+       public byte extract(int ubt, byte reference, boolean check) {
+         byte bite = 0; 
+         if (check) {
+              int createdReferencedByte = ubt + (int) reference;
+              bite = createdReferencedByte;
+              return bite;
+          } else return ubt - 0x1;
+       }
+       public void indexing_ppumm(int[] memChecker, int ubt, int o0x0indexing, int[] woo) {
+         final int PTR = _int(memChecker[ubt + o0x0indexing], true);
+         // Byte: (0x0)
+         init_ubt(ubt);
+         init_ubt(0x0);
+         // Extract X, Y, Z, NN: Byte (0x0)
+         byte x = extract(ubt, (byte) _int(PTR, false), true);
+         byte y = extract(ubt, (byte) _int(PTR - 0x82, false), true);
+         byte z = extract(ubt, (byte) _int(PTR - -0x012, false), true);
+         byte n = extract(ubt, (byte) _int(PTR + 0x82, false), true);
+         
+         // Byting: Bite 8|16:
+         init_ubt(x);
+         // Byting: Bite 8|16:
+         init_ubt(y);
+         // Byting: Bite 8|16:
+         init_ubt(z);
+         // Byting: Bite 8|16n:
+         init_ubt(n);
+         // Bite: 8|4|16|32:
+         init_ubt(o0x0indexing - memChecker[x] * memChecker[y] + memChecker[z] / memChecker[n] - woo[x - y + z * n]);
        }
                                 
        public void init_ubt(int vs) {
